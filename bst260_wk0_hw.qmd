@@ -1,0 +1,33 @@
+---
+title: "BST260 - Week 0 Homework"
+author: "Gaurav Agarwal"
+format: html
+editor: visual
+execute:
+  echo: false
+---
+
+## Question 1
+
+Consider $f(x) = ax^2+bx+c=0$. First, we define variables $a=1, b=3, c=2$.
+
+```{r}
+a <- 1
+b <- 3
+c <- 2
+```
+
+Next, we perform the quadratic formula: $x=(-b + sqrt(b^2 - 4*a*c) ) / (2*a)$ to derive the solutions for x.
+
+```{r}
+(-b + sqrt(b^2 - 4*a*c) ) / ( 2*a )
+(-b - sqrt(b^2 - 4*a*c) ) / ( 2*a )
+```
+
+The results can be confirmed by plotting the graph of $f(x) = x^2+3x+2$.
+
+```{r}
+x <- seq(-5, 5, length = 300)
+plot(x, a*x^2 + b*x + c, type = "l")
+abline(h = 0, lty = 2)
+```
