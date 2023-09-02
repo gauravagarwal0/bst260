@@ -1,0 +1,45 @@
+---
+title: "BST260 - Week 0 Homework"
+author: "Gaurav Agarwal"
+format: html
+editor: visual
+execute:
+  echo: false
+---
+
+Consider $f(x) = ax^2+bx+c=0$. First, we define the variables (default values: $a=1, b=3, c=2$).
+
+```{r}
+# User can set values of variables a, b and c
+a <- 1
+b <- 3
+c <- 2
+```
+
+Next, we perform the quadratic formula: $x=(-b + sqrt(b^2 - 4*a*c) ) / (2*a)$ to derive the solutions for x. There can be either 0, 1 or 2 roots of x, depending on whether the discriminant ($b^2 - 4*a*c$) is \>0 (2 roots), 0 (1 root) or \<0 (no roots). For the default values:
+
+```{r}
+# Define the discriminant
+discriminant <- b^2 - 4*a*c
+
+# Determine if the discriminant is >0, 0 or <0 and display the corresponding number of roots of x.
+if (discriminant > 0) {
+  root1 <- (-b + sqrt(discriminant)) / (2*a)
+  root2 <- (-b - sqrt(discriminant)) / (2*a)
+  print(paste("Solutions: x = ", root1, " and x = ", root2))
+} else if (discriminant == 0) {
+  root1 <- -b / (2*a)
+  print(paste("Solution: x = ", root1))
+} else {
+  print("There are no real solutions to this quadratic equation (only complex numbers).")
+}
+
+```
+
+The results can be confirmed by plotting the graph of $f(x) = ax^2+bx+c$.
+
+```{r}
+x <- seq(-5, 5, length = 300)
+plot(x, a*x^2 + b*x + c, type = "l")
+abline(h = 0, lty = 2)
+```
